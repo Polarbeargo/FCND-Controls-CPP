@@ -45,7 +45,6 @@ void QuadControl::Init()
 
   minMotorThrust = config->Get(_config + ".minMotorThrust", 0);
   maxMotorThrust = config->Get(_config + ".maxMotorThrust", 100);
-  l = L / sqrt(2.f);
 #else
   // load params from PX4 parameter system
   //TODO
@@ -75,6 +74,7 @@ VehicleCommand QuadControl::GenerateMotorCommands(float collThrustCmd, V3F momen
 //  cmd.desiredThrustsN[1] = mass * 9.81f / 4.f; // front right
 //  cmd.desiredThrustsN[2] = mass * 9.81f / 4.f; // rear left
 //  cmd.desiredThrustsN[3] = mass * 9.81f / 4.f; // rear right
+    float l = L / sqrt(2.f);
     float tor_x = momentCmd.x / l;
     float tor_y = momentCmd.y / l;
     
