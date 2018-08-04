@@ -49,7 +49,8 @@ Don't worrying about yaw just yet.
 
  - implemented the code in the function `RollPitchControl()`. 
  
- ![](./images/roll.png)
+ ![](./images/roll.png)   
+ 
  ![](./images/roll2.png)
  
  The code is in `QuadControl.cpp` line [125 to 166](/src/QuadControl.cpp#L125-L166)  
