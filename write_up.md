@@ -14,7 +14,7 @@ The architecture of the  drone controller consists of altitude controller, posit
 ![](./images/3d_control.png)    
 
 #### Parameter Tuning (scenario 1)
-In scenario 1, I modified the quad mass in `QuadControlParams.txt` line [12](./cpp/config/QuadControlParams.txt#L12) 
+In scenario 1, I modified the quad mass in `QuadControlParams.txt` line [12](./config/QuadControlParams.txt#L12) 
 
 [![Youtube Demo:](https://img.youtube.com/vi/oNuX0w8yZDE/0.jpg)](https://www.youtube.com/watch?v=oNuX0w8yZDE)   
     
@@ -29,7 +29,8 @@ The attitude controller breaks down into smaller controllers responsible for rol
 ![](./images/attitude_control.png)
 
  In scenario 2, I see a quad above the origin. It is created with a small initial rotation speed about its roll axis. Controller will need to stabilize the rotational motion and bring the vehicle back to level attitude.
- 
+Here are the steps to complete this scenario:   
+
 1. Implement body rate control
 
  - implemented the code in the function `GenerateMotorCommands().`The code is in `QuadControl.cpp` line [56 to 96](/src/QuadControl.cpp#L56-L96) 
@@ -44,10 +45,11 @@ The attitude controller breaks down into smaller controllers responsible for rol
 
  The rotation of the vehicle about roll (omega.x) get controlled to 0 while other rates remain zero. Note that the vehicle will keep flying off quite quickly, since the angle is not yet being controlled back to 0.  Also note that some overshoot will happen due to motor dynamics!
 
-2. Implement roll / pitch control
-Don't worrying about yaw just yet.
+2. Implement roll / pitch control   
 
- - implemented the code in the function `RollPitchControl()`. 
+No need to worrying about yaw just yet.
+
+ - implemented the code in the function `RollPitchControl()` as following equation. 
  
  ![](./images/roll.png)   
  
