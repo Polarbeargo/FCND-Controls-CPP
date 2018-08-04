@@ -1,6 +1,7 @@
 # The C++ Project Write Up #
-
-####Project Requirement:
+    
+    
+#### Project Requirement:
 1. Cloned the repository and gotten familiar with the C++ environment as outlined in C++ Setup.    
   
 2. Complete each of the scenarios outlined in the C++ project readme. This will involve implementing and tuning   controllers incrementally:
