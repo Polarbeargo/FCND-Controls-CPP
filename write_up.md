@@ -69,13 +69,15 @@ PASS: ABS(Quad.Omega.X) was less than 2.500000 for at least 0.750000 seconds
   
   - `AltitudeControl()` is a PD controller base on following:   
   
-![](./images/alt1.png) 
-![](./images/alt2.png)
-![](./images/alt3.png)
+![](./images/alt1.png)    
+
+![](./images/alt2.png)    
+
+![](./images/alt3.png)    
+
 ![](./images/alt4.png)    
 
-     The code is in `QuadControl.cpp` line [168 to 204](/src/QuadControl.cpp#L168-L204).    
-     
+The code is in `QuadControl.cpp` line [168 to 204](/src/QuadControl.cpp#L168-L204).
   - `YawControl()` Control over yaw decoupled from the other directions. A P controller is used to control the  drone's yaw. The code is in in `QuadControl.cpp` line [254 to 273](/src/QuadControl.cpp#L254-L273). 
 
 [](./images/yaw_control.png)   
