@@ -43,7 +43,7 @@ Here are the steps to complete this scenario:
  
  - Tune `kpPQR` in `QuadControlParams.txt` to kpPQR = `30, 30, 5` to get the vehicle to stop spinning quickly but not overshoot.
 
- The rotation of the vehicle about roll (omega.x) get controlled to 0 while other rates remain zero. Note that the vehicle will keep flying off quite quickly, since the angle is not yet being controlled back to 0.  Also note that some overshoot will happen due to motor dynamics!
+ The rotation of the vehicle about roll (omega.x) get controlled to 0 while other rates remain zero. Note that the vehicle will keep flying off quite quickly, since the angle is not yet being controlled back to 0.  Also note that some overshoot will happen due to motor dynamics! The body rates of the controller is multiplied by a proportional gain and the controller does take into account the moments of inertia when calculating the commanded moments. The controller use acceleration and thrust commands accommodating for the non-linear transformation from local accelerations to body rates to output the body rate command.
 
 2. Implement roll / pitch control   
 
@@ -56,7 +56,9 @@ No need to worrying about yaw just yet.
  ![](./images/roll2.png)
  
  The code is in `QuadControl.cpp` line [125 to 166](/src/QuadControl.cpp#L125-L166)  
- - Tune `kpBank` in `QuadControlParams.txt` to minimize settling time but avoid too much overshoot.
+ - Tune `kpBank` in `QuadControlParams.txt` to minimize settling time but avoid too much overshoot.   
+ 
+ The controller use both down position and down velocity to command thrust, which includes non-linear effects from non-zero roll/pitch angles.
 
 [![Youtube Demo:](https://img.youtube.com/vi/ZAcTQpNt_sg/0.jpg)](https://www.youtube.com/watch?v=ZAcTQpNt_sg)
     
@@ -106,7 +108,7 @@ PASS: ABS(Quad2.Yaw) was less than 0.100000 for at least 1.000000 seconds
  - The red vehicle is heavier than usual
  - Edit `AltitudeControl()` to add basic integral control to help with the different-mass vehicle.The code is in `QuadControl.cpp` line [168 to 204](/src/QuadControl.cpp#L168-L204)
 
-In here suddenly need to tune all parameter all over again after tuning angle rate gains `kpPQR = 50, 50, 10` successful pass scenario 3 & 4
+In here suddenly need to tune all parameter all over again after tuning angle rate gains `kpPQR = 50, 50, 10` successful pass scenario 3 & 4. The dimensions of the drone are properly accounted for when converting the thrust and moments to appropriate 4 different desired thrust forces
 
 [![Youtube Demo:](https://img.youtube.com/vi/7zBqXAWNi4E/0.jpg)](https://www.youtube.com/watch?v=7zBqXAWNi4E)     
 
