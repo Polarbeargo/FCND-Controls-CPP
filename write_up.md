@@ -121,7 +121,7 @@ PASS: ABS(Quad3.PosFollowErr) was less than 0.100000 for at least 1.500000 secon
 ```
 ### Tracking trajectories ###   
 
-In this part you should see two drones follow trajectory part but after uning angle rate gains `kpPQR = 50, 50, 10` successful pass scenario 5.   
+In this part you should see two drones follow trajectory part but after tuning angle rate gains `kpPQR = 50, 50, 10` successful pass scenario 5.   
 
 [![Youtube Demo:](https://img.youtube.com/vi/eetnNu0gJfg/0.jpg)](https://www.youtube.com/watch?v=eetnNu0gJfg)
     
